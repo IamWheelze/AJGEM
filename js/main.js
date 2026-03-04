@@ -230,25 +230,44 @@ function initContactForm() {
                 return;
             }
 
-            // Simulate form submission
+            // Submit via Web3Forms
             const submitBtn = this.querySelector('.btn-submit');
             const originalText = submitBtn.innerHTML;
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
             submitBtn.disabled = true;
 
-            setTimeout(() => {
-                submitBtn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
-                submitBtn.style.background = '#50c878';
-                showNotification('Thank you! Your message has been sent successfully.', 'success');
-
-                // Reset form
-                setTimeout(() => {
-                    contactForm.reset();
-                    submitBtn.innerHTML = originalText;
-                    submitBtn.disabled = false;
-                    submitBtn.style.background = '';
-                }, 2000);
-            }, 1500);
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                body: JSON.stringify({
+                    access_key: '435c3454-fdd1-4590-86d4-40180d5de896',
+                    name: data.name,
+                    email: data.email,
+                    subject: data.subject,
+                    message: data.message
+                })
+            })
+            .then(res => res.json())
+            .then(result => {
+                if (result.success) {
+                    submitBtn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
+                    submitBtn.style.background = '#50c878';
+                    showNotification('Thank you! Your message has been sent successfully.', 'success');
+                    setTimeout(() => {
+                        contactForm.reset();
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.disabled = false;
+                        submitBtn.style.background = '';
+                    }, 2000);
+                } else {
+                    throw new Error(result.message || 'Submission failed');
+                }
+            })
+            .catch(() => {
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+                showNotification('Something went wrong. Please try again or email directly.', 'error');
+            });
         });
     }
 }
