@@ -688,6 +688,15 @@ ul {
     color: rgba(255, 255, 255, 0.2);
 }
 
+.profile-photo {
+    width: 100%;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    object-position: top center;
+    border-radius: var(--radius-md);
+    display: block;
+}
+
 .experience-badge {
     position: absolute;
     bottom: 30px;
@@ -1392,6 +1401,16 @@ ul {
     color: var(--text-secondary);
     font-size: 0.95rem;
     margin-bottom: 15px;
+}
+
+.project-location {
+    font-size: 0.85rem;
+    color: var(--primary-color);
+    margin-bottom: 12px;
+}
+
+.project-location i {
+    margin-right: 4px;
 }
 
 .project-tech {
