@@ -1315,6 +1315,83 @@ ul {
 }
 
 /* =====================================================
+   TRADE SECTION
+   ===================================================== */
+.trade-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-bottom: 50px;
+}
+
+.trade-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 12px;
+    padding: 28px 20px;
+    text-align: center;
+    transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+}
+
+.trade-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--accent-gold);
+    background: rgba(212, 175, 55, 0.08);
+}
+
+.trade-icon {
+    width: 56px;
+    height: 56px;
+    background: var(--gradient-gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+}
+
+.trade-icon i {
+    font-size: 1.3rem;
+    color: #fff;
+}
+
+.trade-card h4 {
+    color: var(--accent-gold);
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.trade-card p {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+.trade-cta {
+    text-align: center;
+    padding-top: 10px;
+}
+
+.trade-cta p {
+    color: var(--text-muted);
+    margin-bottom: 20px;
+    font-size: 1rem;
+}
+
+@media (max-width: 1024px) {
+    .trade-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 768px) {
+    .trade-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 480px) {
+    .trade-grid { grid-template-columns: 1fr; }
+}
+
+/* =====================================================
    PROJECTS SECTION
    ===================================================== */
 .projects-grid {
