@@ -1752,13 +1752,17 @@ ul {
 }
 
 .project-location {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--accent-copper);
     font-size: 0.85rem;
-    color: var(--primary-color);
+    font-weight: 500;
     margin-bottom: 12px;
 }
 
 .project-location i {
-    margin-right: 4px;
+    font-size: 0.8rem;
 }
 
 .project-tech {
