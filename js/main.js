@@ -14,6 +14,8 @@ document.addEventListener('DOMContentLoaded', function() {
     initContactForm();
     initCounterAnimation();
     initSkillBars();
+    initMineralTrade();
+    initMineralNews();
 });
 
 /**
@@ -534,6 +536,283 @@ function initParticles() {
 
 // Initialize particles on load
 window.addEventListener('load', initParticles);
+
+/* =========================================================
+   MINERAL DATA — prices, demand, facts for all 16 minerals
+   ========================================================= */
+const MINERAL_DATA = {
+    gold: {
+        priceType: 'live', priceKey: 'gold',
+        unit: '/ troy oz', demand: 'High', demandClass: 'demand-high',
+        urgency: '⭐⭐⭐⭐',
+        production: '~3 t/yr Nigeria · 3,300 t/yr global',
+        keyUses: 'Jewellery, Electronics, Central Bank Reserves',
+        hotFact: 'Gold hit all-time highs in 2024–25. Zamfara belt is Nigeria\'s richest strike.'
+    },
+    silver: {
+        priceType: 'live', priceKey: 'silver',
+        unit: '/ troy oz', demand: 'High', demandClass: 'demand-high',
+        urgency: '⭐⭐⭐⭐',
+        production: 'Underdeveloped in Nigeria — high upside · 25,000 t/yr global',
+        keyUses: 'Solar panels, Electronics, Photography, Jewellery',
+        hotFact: 'Solar panel demand is driving record silver consumption worldwide.'
+    },
+    lithium: {
+        priceType: 'ref', refPrice: '$13,500',
+        unit: '/ tonne (LCE)', demand: 'Critical', demandClass: 'demand-critical',
+        urgency: '⭐⭐⭐⭐⭐',
+        production: '10M+ tonne reserves (Nasarawa) · 180,000 t/yr global LCE',
+        keyUses: 'EV Batteries, Grid Storage, Electronics',
+        hotFact: 'Global lithium demand projected to grow 10× by 2040. Nigeria sits on a fortune.'
+    },
+    monazite: {
+        priceType: 'ref', refPrice: '$2,800',
+        unit: '/ tonne', demand: 'Critical', demandClass: 'demand-critical',
+        urgency: '⭐⭐⭐⭐⭐',
+        production: 'Strategic — restricted globally · Lagos, Ogun, Ondo coastal sands',
+        keyUses: 'Rare Earth Elements, Wind Turbines, EV Motors, Defence',
+        hotFact: 'Every EV motor and wind turbine needs rare earths locked inside monazite.'
+    },
+    cassiterite: {
+        priceType: 'ref', refPrice: '$27,000',
+        unit: '/ tonne (LME Tin ref)', demand: 'High', demandClass: 'demand-high',
+        urgency: '⭐⭐⭐⭐',
+        production: 'Jos Plateau — Nigeria was 6th global tin producer · 340,000 t/yr global',
+        keyUses: 'Solder, Electronics, Packaging, Bronze Alloys',
+        hotFact: 'Tin is essential for semiconductor solder — demand soaring with global chip expansion.'
+    },
+    'iron-ore': {
+        priceType: 'ref', refPrice: '$105',
+        unit: '/ tonne (62% Fe IODEX ref)', demand: 'High', demandClass: 'demand-high',
+        urgency: '⭐⭐⭐',
+        production: '3B+ tonne reserves (Kogi, Enugu) · 2.5B t/yr global',
+        keyUses: 'Steel Production, Construction, Infrastructure',
+        hotFact: 'Nigeria imports ₦2 trillion in steel annually — massive local demand opportunity.'
+    },
+    zircon: {
+        priceType: 'ref', refPrice: '$1,650',
+        unit: '/ tonne', demand: 'Moderate', demandClass: 'demand-moderate',
+        urgency: '⭐⭐⭐',
+        production: 'Beach sands alongside monazite (Lagos, Ogun) · 1.5M t/yr global',
+        keyUses: 'Ceramics, Nuclear Reactors, Gemstone, Foundry Sand',
+        hotFact: 'Zirconium is critical for nuclear fuel rod cladding — strategic material.'
+    },
+    columbite: {
+        priceType: 'ref', refPrice: '$45',
+        unit: '/ kg Nb content', demand: 'Critical', demandClass: 'demand-critical',
+        urgency: '⭐⭐⭐⭐⭐',
+        production: 'Nigeria was #1 global producer — Plateau State revival underway',
+        keyUses: 'Aerospace Alloys, Superconductors, Pipeline Steel, Jet Engines',
+        hotFact: 'Nigeria once supplied 80% of global columbite. Those days can return — and soon.'
+    },
+    tantalite: {
+        priceType: 'ref', refPrice: '$130',
+        unit: '/ kg Ta₂O₅', demand: 'Critical', demandClass: 'demand-critical',
+        urgency: '⭐⭐⭐⭐⭐',
+        production: 'Plateau, Nasarawa, Kogi tin belt · ~2,000 t/yr global refined',
+        keyUses: 'Smartphone Capacitors, Medical Implants, Aerospace, Military',
+        hotFact: 'Every smartphone contains tantalum. Demand growing 15 % per year — act now.'
+    },
+    galena: {
+        priceType: 'ref', refPrice: '$2,100',
+        unit: '/ tonne (LME Lead ref)', demand: 'Moderate', demandClass: 'demand-moderate',
+        urgency: '⭐⭐⭐',
+        production: 'Benue Trough, Abakaliki · 4.5M t/yr global refined lead',
+        keyUses: 'Lead-Acid Batteries, Radiation Shielding, Cables, Ammunition',
+        hotFact: 'Lead-acid batteries still dominate energy storage globally — steady demand.'
+    },
+    wolframite: {
+        priceType: 'ref', refPrice: '$35,000',
+        unit: '/ tonne (APT ref)', demand: 'High', demandClass: 'demand-high',
+        urgency: '⭐⭐⭐⭐',
+        production: 'Plateau, Kaduna, Bauchi Younger Granite · ~90,000 t/yr W global',
+        keyUses: 'Cutting Tools, Military Munitions, High-Temp Alloys, Electronics',
+        hotFact: 'China controls 80% of global supply — sourcing from Nigeria is strategically attractive.'
+    },
+    rutile: {
+        priceType: 'ref', refPrice: '$1,250',
+        unit: '/ tonne', demand: 'High', demandClass: 'demand-high',
+        urgency: '⭐⭐⭐⭐',
+        production: 'Lagos, Cross River, Akwa Ibom coastal sands · 700,000 t/yr global',
+        keyUses: 'Titanium Metal, Aerospace, Welding Rods, Pigments',
+        hotFact: 'Titanium from rutile is the material of choice for next-gen aircraft and medical implants.'
+    },
+    ilmenite: {
+        priceType: 'ref', refPrice: '$360',
+        unit: '/ tonne', demand: 'Moderate', demandClass: 'demand-moderate',
+        urgency: '⭐⭐⭐',
+        production: 'Coastal & Plateau States · 8M t/yr global',
+        keyUses: 'TiO₂ Pigment, Titanium Metal, Aerospace',
+        hotFact: 'TiO₂ is the most widely used white pigment — in every can of paint and tube of sunscreen.'
+    },
+    barite: {
+        priceType: 'ref', refPrice: '$220',
+        unit: '/ tonne', demand: 'High', demandClass: 'demand-high',
+        urgency: '⭐⭐⭐⭐',
+        production: 'Cross River, Taraba, Benue · 9M t/yr global',
+        keyUses: 'Oil Drilling Mud, Oil & Gas Operations, Paints',
+        hotFact: 'Every oil well drilled in Nigeria needs barite. Domestic demand is strong and growing.'
+    },
+    tourmaline: {
+        priceType: 'ref', refPrice: '$60',
+        unit: '/ carat (gem quality)', demand: 'Moderate', demandClass: 'demand-moderate',
+        urgency: '⭐⭐⭐',
+        production: 'Oyo, Kwara, Nassarawa pegmatites · gem market variable',
+        keyUses: 'Fine Jewellery, Gem Collectors, Industrial Abrasive',
+        hotFact: 'Nigerian tourmalines are gaining attention on international gem markets for their vivid colours.'
+    },
+    sapphire: {
+        priceType: 'ref', refPrice: '$200',
+        unit: '/ carat (gem quality)', demand: 'High', demandClass: 'demand-high',
+        urgency: '⭐⭐⭐⭐',
+        production: 'Kaduna, Plateau, Taraba gravels · limited global supply',
+        keyUses: 'Fine Jewellery, Luxury Watches, Gem Collectors',
+        hotFact: 'Nigerian sapphires are emerging in international gem markets — early movers have the edge.'
+    }
+};
+
+/**
+ * Inject trade block into each mineral card based on data-mineral attribute
+ */
+function initMineralTrade() {
+    document.querySelectorAll('.gallery-item[data-mineral]').forEach(item => {
+        const key = item.getAttribute('data-mineral');
+        const data = MINERAL_DATA[key];
+        if (!data) return;
+
+        const info = item.querySelector('.mineral-info');
+        if (!info) return;
+
+        const priceLabel = data.priceType === 'live'
+            ? `<span class="price-dot-live"></span> <span class="mineral-live-price-val" data-price-key="${data.priceKey}">Loading…</span> ${data.unit}`
+            : `<span>Ref. ${data.refPrice}</span> ${data.unit}`;
+
+        const tradeBlock = document.createElement('div');
+        tradeBlock.className = 'mineral-trade';
+        tradeBlock.innerHTML = `
+            <div class="mineral-price-row">
+                <span class="mineral-live-price">${priceLabel}</span>
+                <span class="demand-badge ${data.demandClass}">${data.demand} Demand</span>
+            </div>
+            <div class="mineral-quick-facts">
+                <span><i class="fas fa-globe-africa"></i> ${data.production}</span>
+                <span><i class="fas fa-industry"></i> ${data.keyUses}</span>
+                <span><i class="fas fa-star"></i> Urgency: ${data.urgency}</span>
+            </div>
+            <div class="mineral-hot-fact">
+                <i class="fas fa-fire" style="color:var(--accent-gold);margin-right:5px;"></i>${data.hotFact}
+            </div>
+            <a href="#contact" class="btn-trade">
+                <i class="fas fa-handshake"></i> Enquire to Trade
+            </a>`;
+        info.appendChild(tradeBlock);
+    });
+
+    // Fetch live gold/silver prices
+    fetchLivePrices();
+    // Refresh every 5 minutes
+    setInterval(fetchLivePrices, 5 * 60 * 1000);
+}
+
+/**
+ * Fetch live gold and silver prices from metals.live (free, no API key)
+ */
+function fetchLivePrices() {
+    fetch('https://api.metals.live/v1/spot')
+        .then(r => r.json())
+        .then(data => {
+            // data is an array of objects [{gold: price}, {silver: price}, ...]
+            let prices = {};
+            if (Array.isArray(data)) {
+                data.forEach(obj => Object.assign(prices, obj));
+            } else {
+                prices = data;
+            }
+
+            const gold = prices.gold ? `$${Number(prices.gold).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}` : null;
+            const silver = prices.silver ? `$${Number(prices.silver).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}` : null;
+            const now = new Date().toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'});
+
+            // Update ticker strip
+            if (gold) document.getElementById('ticker-gold') && (document.getElementById('ticker-gold').textContent = gold + ' / oz');
+            if (silver) document.getElementById('ticker-silver') && (document.getElementById('ticker-silver').textContent = silver + ' / oz');
+            const tickerTime = document.getElementById('ticker-time');
+            if (tickerTime) tickerTime.textContent = now;
+
+            // Update card price labels
+            if (gold) {
+                document.querySelectorAll('.mineral-live-price-val[data-price-key="gold"]').forEach(el => {
+                    el.textContent = gold;
+                });
+            }
+            if (silver) {
+                document.querySelectorAll('.mineral-live-price-val[data-price-key="silver"]').forEach(el => {
+                    el.textContent = silver;
+                });
+            }
+        })
+        .catch(() => {
+            // Silently fail — ref prices are still shown for other minerals
+            ['ticker-gold', 'ticker-silver'].forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.textContent = 'unavailable';
+            });
+            document.querySelectorAll('.mineral-live-price-val').forEach(el => {
+                el.textContent = 'Contact for price';
+            });
+        });
+}
+
+/**
+ * Fetch mineral market news from Mining.com RSS via rss2json
+ */
+function initMineralNews() {
+    const grid = document.getElementById('news-grid');
+    if (!grid) return;
+
+    const rssUrl = encodeURIComponent('https://www.mining.com/feed/');
+    const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${rssUrl}&count=6`;
+
+    fetch(apiUrl)
+        .then(r => r.json())
+        .then(data => {
+            if (!data.items || data.items.length === 0) throw new Error('No items');
+
+            const icons = ['⛏️', '💎', '🪨', '🔬', '🌍', '📈'];
+            grid.innerHTML = data.items.map((item, i) => {
+                const date = new Date(item.pubDate).toLocaleDateString('en-GB', {day: 'numeric', month: 'short', year: 'numeric'});
+                const desc = item.description
+                    ? item.description.replace(/<[^>]*>/g, '').slice(0, 180) + '…'
+                    : '';
+                const imgSrc = item.thumbnail || item.enclosure?.link || '';
+                const imgEl = imgSrc
+                    ? `<img src="${imgSrc}" alt="" class="news-card-img" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="news-card-img-placeholder" style="display:none">${icons[i % icons.length]}</div>`
+                    : `<div class="news-card-img-placeholder">${icons[i % icons.length]}</div>`;
+
+                return `
+                <div class="news-card">
+                    ${imgEl}
+                    <div class="news-card-body">
+                        <div class="news-card-date">${date}</div>
+                        <div class="news-card-title">${item.title}</div>
+                        <div class="news-card-desc">${desc}</div>
+                        <a href="${item.link}" target="_blank" rel="noopener noreferrer" class="news-card-link">
+                            Read full story <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>`;
+            }).join('');
+        })
+        .catch(() => {
+            grid.innerHTML = `
+                <div class="news-error">
+                    <i class="fas fa-satellite-dish" style="font-size:2rem;color:var(--accent-gold);display:block;margin-bottom:12px;"></i>
+                    Could not load live news right now. Visit
+                    <a href="https://www.mining.com" target="_blank" rel="noopener noreferrer" style="color:var(--accent-gold);">Mining.com</a>
+                    for the latest mineral market updates.
+                </div>`;
+        });
+}
 
 /**
  * Console Welcome Message
