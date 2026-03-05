@@ -2009,6 +2009,153 @@ ul {
     }
 }
 
+/* =====================================================
+   Trade Minerals Section
+   ===================================================== */
+
+.trade {
+    background: var(--light-bg);
+}
+
+.trade-content {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 60px;
+    align-items: start;
+}
+
+.trade-info h3,
+.trade-form-wrapper h3 {
+    font-size: 1.4rem;
+    color: var(--primary-dark);
+    margin-bottom: 15px;
+}
+
+.trade-info > p {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+.trade-minerals-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.trade-mineral-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-primary);
+    font-size: 0.95rem;
+}
+
+.trade-mineral-item i {
+    color: var(--accent-gold);
+    font-size: 0.6rem;
+}
+
+.trade-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    background: var(--primary-color);
+    color: var(--white);
+    padding: 15px 20px;
+    border-radius: 8px;
+}
+
+.trade-note i {
+    font-size: 1.2rem;
+    margin-top: 2px;
+    flex-shrink: 0;
+    color: var(--accent-gold);
+}
+
+.trade-note p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.trade-form-wrapper {
+    background: var(--white);
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: var(--shadow-lg);
+}
+
+.trade-form .form-group {
+    margin-bottom: 18px;
+}
+
+.trade-form label {
+    display: block;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 6px;
+}
+
+.trade-form input,
+.trade-form select,
+.trade-form textarea {
+    width: 100%;
+    padding: 11px 15px;
+    border: 1.5px solid var(--gray-300);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    background: var(--gray-100);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    font-family: inherit;
+}
+
+.trade-form input:focus,
+.trade-form select:focus,
+.trade-form textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(26, 95, 122, 0.12);
+    background: var(--white);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.trade-form textarea {
+    resize: vertical;
+}
+
+.btn-submit-trade {
+    width: 100%;
+    padding: 14px;
+    font-size: 1rem;
+    margin-top: 5px;
+}
+
+@media (max-width: 900px) {
+    .trade-content {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+}
+
+@media (max-width: 600px) {
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .trade-form-wrapper {
+        padding: 25px 18px;
+    }
+}
+
 /* Print Styles */
 @media print {
     .navbar,

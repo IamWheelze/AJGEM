@@ -37,6 +37,7 @@
                 <li><a href="#skills" class="nav-link">Expertise</a></li>
                 <li><a href="#services" class="nav-link">Services</a></li>
                 <li><a href="#gallery" class="nav-link">Minerals</a></li>
+                <li><a href="#trade" class="nav-link">Trade</a></li>
                 <li><a href="#projects" class="nav-link">Projects</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
@@ -764,6 +765,122 @@
 
             <div class="gallery-note">
                 <p><i class="fas fa-info-circle"></i> Nigeria is endowed with over 44 different mineral types across its 36 states. This gallery showcases key minerals with exploration and economic significance.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trade Minerals Section -->
+    <section id="trade" class="trade section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Sourcing & Procurement</span>
+                <h2 class="section-title">Trade Minerals</h2>
+                <div class="title-underline"></div>
+                <p class="section-description">
+                    Interested in sourcing Nigerian minerals? Submit an inquiry below and we'll get back to you with availability, pricing, and logistics details.
+                </p>
+            </div>
+            <div class="trade-content">
+                <div class="trade-info">
+                    <h3>Available for Trade</h3>
+                    <p>We facilitate the sourcing and export of verified Nigerian minerals for industrial, commercial, and research purposes. All minerals are ethically sourced and come with relevant documentation.</p>
+                    <div class="trade-minerals-list">
+                        <div class="trade-mineral-item">
+                            <i class="fas fa-circle-dot"></i>
+                            <span>Gold (Zamfara, Osun, Kebbi)</span>
+                        </div>
+                        <div class="trade-mineral-item">
+                            <i class="fas fa-circle-dot"></i>
+                            <span>Cassiterite / Tin (Jos Plateau)</span>
+                        </div>
+                        <div class="trade-mineral-item">
+                            <i class="fas fa-circle-dot"></i>
+                            <span>Columbite &amp; Tantalite (Coltan)</span>
+                        </div>
+                        <div class="trade-mineral-item">
+                            <i class="fas fa-circle-dot"></i>
+                            <span>Lithium (Nasarawa, Kwara)</span>
+                        </div>
+                        <div class="trade-mineral-item">
+                            <i class="fas fa-circle-dot"></i>
+                            <span>Galena / Lead-Zinc (Benue Trough)</span>
+                        </div>
+                        <div class="trade-mineral-item">
+                            <i class="fas fa-circle-dot"></i>
+                            <span>Iron Ore (Kogi, Enugu)</span>
+                        </div>
+                        <div class="trade-mineral-item">
+                            <i class="fas fa-circle-dot"></i>
+                            <span>Barite (Taraba, Benue)</span>
+                        </div>
+                        <div class="trade-mineral-item">
+                            <i class="fas fa-circle-dot"></i>
+                            <span>Gemstones (Tourmaline, Sapphire)</span>
+                        </div>
+                    </div>
+                    <div class="trade-note">
+                        <i class="fas fa-shield-alt"></i>
+                        <p>All transactions comply with Nigerian Mining Act regulations and international export requirements.</p>
+                    </div>
+                </div>
+                <div class="trade-form-wrapper">
+                    <h3>Submit an Inquiry</h3>
+                    <form id="trade-form" class="trade-form">
+                        <input type="hidden" name="access_key" value="435c3454-fdd1-4590-86d4-40180d5de896">
+                        <input type="hidden" name="subject" value="Mineral Trade Inquiry - AJGEM">
+                        <div class="form-group">
+                            <label for="trade-name">Full Name *</label>
+                            <input type="text" id="trade-name" name="name" placeholder="Your full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="trade-email">Email Address *</label>
+                            <input type="email" id="trade-email" name="email" placeholder="your@email.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="trade-company">Company / Organisation</label>
+                            <input type="text" id="trade-company" name="company" placeholder="Your company name (optional)">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="trade-mineral">Mineral of Interest *</label>
+                                <select id="trade-mineral" name="mineral" required>
+                                    <option value="" disabled selected>Select a mineral</option>
+                                    <option value="Gold">Gold</option>
+                                    <option value="Cassiterite / Tin">Cassiterite / Tin</option>
+                                    <option value="Columbite">Columbite</option>
+                                    <option value="Tantalite">Tantalite</option>
+                                    <option value="Lithium">Lithium</option>
+                                    <option value="Galena / Lead-Zinc">Galena / Lead-Zinc</option>
+                                    <option value="Iron Ore">Iron Ore</option>
+                                    <option value="Barite">Barite</option>
+                                    <option value="Gemstones">Gemstones</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="trade-type">Inquiry Type *</label>
+                                <select id="trade-type" name="inquiry_type" required>
+                                    <option value="" disabled selected>Buy or Sell?</option>
+                                    <option value="Buy">I want to Buy</option>
+                                    <option value="Sell">I want to Sell</option>
+                                    <option value="Both">Buy &amp; Sell</option>
+                                    <option value="Information">Information only</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="trade-quantity">Estimated Quantity / Volume</label>
+                            <input type="text" id="trade-quantity" name="quantity" placeholder="e.g. 5 tonnes, 100 kg, TBD">
+                        </div>
+                        <div class="form-group">
+                            <label for="trade-message">Additional Details *</label>
+                            <textarea id="trade-message" name="message" rows="4" placeholder="Describe your requirements, intended use, timeline, or any other relevant details..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-submit-trade">
+                            <i class="fas fa-paper-plane"></i> Send Inquiry
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
     </section>

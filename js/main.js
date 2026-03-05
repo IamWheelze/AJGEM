@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initAnimations();
     initGalleryFilter();
     initContactForm();
+    initTradeForm();
     initCounterAnimation();
     initSkillBars();
 });
@@ -267,6 +268,70 @@ function initContactForm() {
                 submitBtn.innerHTML = originalText;
                 submitBtn.disabled = false;
                 showNotification('Something went wrong. Please try again or email directly.', 'error');
+            });
+        });
+    }
+}
+
+/**
+ * Trade Inquiry Form
+ */
+function initTradeForm() {
+    const tradeForm = document.getElementById('trade-form');
+
+    if (tradeForm) {
+        tradeForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+
+            if (!data.name || !data.email || !data.mineral || !data.inquiry_type || !data.message) {
+                showNotification('Please fill in all required fields', 'error');
+                return;
+            }
+
+            if (!isValidEmail(data.email)) {
+                showNotification('Please enter a valid email address', 'error');
+                return;
+            }
+
+            const submitBtn = this.querySelector('.btn-submit-trade');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            submitBtn.disabled = true;
+
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                body: JSON.stringify({
+                    access_key: '435c3454-fdd1-4590-86d4-40180d5de896',
+                    subject: 'Mineral Trade Inquiry - AJGEM',
+                    name: data.name,
+                    email: data.email,
+                    message: `Company: ${data.company || 'N/A'}\nMineral: ${data.mineral}\nInquiry Type: ${data.inquiry_type}\nQuantity: ${data.quantity || 'Not specified'}\n\n${data.message}`
+                })
+            })
+            .then(res => res.json())
+            .then(result => {
+                if (result.success) {
+                    submitBtn.innerHTML = '<i class="fas fa-check"></i> Inquiry Sent!';
+                    submitBtn.style.background = '#50c878';
+                    showNotification('Thank you! Your trade inquiry has been received. We\'ll be in touch shortly.', 'success');
+                    setTimeout(() => {
+                        tradeForm.reset();
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.disabled = false;
+                        submitBtn.style.background = '';
+                    }, 2500);
+                } else {
+                    throw new Error(result.message || 'Submission failed');
+                }
+            })
+            .catch(() => {
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+                showNotification('Something went wrong. Please try again or use the contact form.', 'error');
             });
         });
     }
