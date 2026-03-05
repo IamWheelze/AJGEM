@@ -36,7 +36,8 @@
                 <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#skills" class="nav-link">Expertise</a></li>
                 <li><a href="#services" class="nav-link">Services</a></li>
-                <li><a href="#gallery" class="nav-link">Minerals</a></li>
+                <li><a href="#gallery" class="nav-link">Minerals & Trade</a></li>
+                <li><a href="#mineral-news" class="nav-link">Market News</a></li>
                 <li><a href="#projects" class="nav-link">Projects</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
@@ -101,8 +102,9 @@
                         I am a passionate geoscientist with a strong foundation in applied geophysics and
                         advanced expertise in remote sensing and geoinformatics, dedicated to sustainable
                         mineral exploration and environmental stewardship. My operations are primarily based
-                        in Nigeria, where I have conducted mineral exploration campaigns across multiple
-                        states including Zamfara, Kebbi, Kogi, Jos Plateau, Nasarawa, and beyond.
+                        in Nigeria, where I have worked across multiple states for mineral exploration
+                        projects — from the gold belts of Zamfara to the tin-bearing Plateau province and
+                        the strategic mineral corridors of Nasarawa, Kogi, and beyond.
                     </p>
                     <div class="education-timeline">
                         <div class="timeline-item">
@@ -404,12 +406,33 @@
     <section id="gallery" class="gallery section section-dark">
         <div class="container">
             <div class="section-header">
-                <span class="section-subtitle">Nigeria's Geological Wealth</span>
-                <h2 class="section-title">Nigerian Minerals</h2>
+                <span class="section-subtitle">Buy · Sell · Explore · Nigeria's Geological Wealth</span>
+                <h2 class="section-title">Nigerian Minerals & Trade</h2>
                 <div class="title-underline"></div>
                 <p class="section-description">
-                    Showcasing the rich mineral diversity of Nigeria - from the gold deposits of Zamfara to the tin mines of Jos Plateau and the strategic minerals driving the green energy revolution.
+                    Explore Nigeria's rich mineral wealth — and trade it. Each card shows live or reference market prices, demand levels, and key market intelligence so you know exactly what you're working with.
                 </p>
+            </div>
+
+            <!-- Live Price Ticker -->
+            <div class="price-ticker-wrap">
+                <div class="price-ticker-label"><i class="fas fa-satellite-dish"></i> Live Markets</div>
+                <div class="price-ticker">
+                    <span class="ticker-item"><i class="fas fa-coins"></i> Gold <span id="ticker-gold" class="ticker-val">—</span></span>
+                    <span class="ticker-sep">|</span>
+                    <span class="ticker-item"><i class="fas fa-circle"></i> Silver <span id="ticker-silver" class="ticker-val">—</span></span>
+                    <span class="ticker-sep">|</span>
+                    <span class="ticker-item"><i class="fas fa-bolt"></i> Tin (LME ref) <span class="ticker-val">~$27,000/t</span></span>
+                    <span class="ticker-sep">|</span>
+                    <span class="ticker-item"><i class="fas fa-microchip"></i> Columbite ref <span class="ticker-val">~$45/kg Nb</span></span>
+                    <span class="ticker-sep">|</span>
+                    <span class="ticker-item"><i class="fas fa-broadcast-tower"></i> Tantalite ref <span class="ticker-val">~$130/kg</span></span>
+                    <span class="ticker-sep">|</span>
+                    <span class="ticker-item"><i class="fas fa-atom"></i> Lithium ref <span class="ticker-val">~$13,500/t</span></span>
+                    <span class="ticker-sep">|</span>
+                    <span class="ticker-item"><i class="fas fa-clock"></i> Updated <span id="ticker-time" class="ticker-val">—</span></span>
+                </div>
+            </div>
             </div>
 
             <!-- Gallery Filter -->
@@ -425,10 +448,10 @@
             <!-- Gallery Grid -->
             <div class="gallery-grid">
                 <!-- Gold -->
-                <div class="gallery-item" data-category="precious">
+                <div class="gallery-item" data-category="precious" data-mineral="gold">
                     <div class="mineral-card">
                         <div class="mineral-image">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/NatGold.jpg/400px-NatGold.jpg" alt="Gold nuggets - Au Native Element" class="mineral-real-img" loading="lazy">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5b/GoldNuggetUSGOV.jpg" alt="Gold nugget specimen" class="mineral-img" loading="lazy">
                         </div>
                         <div class="mineral-info">
                             <h4>Gold (Au)</h4>
@@ -446,10 +469,10 @@
                 </div>
 
                 <!-- Silver -->
-                <div class="gallery-item" data-category="precious">
+                <div class="gallery-item" data-category="precious" data-mineral="silver">
                     <div class="mineral-card">
                         <div class="mineral-image">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/NativesilverUSGOV.jpg/400px-NativesilverUSGOV.jpg" alt="Native Silver - Ag" class="mineral-real-img" loading="lazy">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/0/06/Silver-3d13b.jpg" alt="Native silver mineral specimen" class="mineral-img" loading="lazy">
                         </div>
                         <div class="mineral-info">
                             <h4>Native Silver (Ag)</h4>
@@ -467,10 +490,10 @@
                 </div>
 
                 <!-- Lithium -->
-                <div class="gallery-item" data-category="strategic">
+                <div class="gallery-item" data-category="strategic" data-mineral="lithium">
                     <div class="mineral-card">
                         <div class="mineral-image">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Spodumene_crystals.jpg/400px-Spodumene_crystals.jpg" alt="Spodumene - Lithium mineral" class="mineral-real-img" loading="lazy">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Spodumene-pb7a.jpg" alt="Spodumene lithium ore specimen" class="mineral-img" loading="lazy">
                         </div>
                         <div class="mineral-info">
                             <h4>Lithium (Li)</h4>
@@ -488,10 +511,10 @@
                 </div>
 
                 <!-- Monazite -->
-                <div class="gallery-item" data-category="rare-earth">
+                <div class="gallery-item" data-category="rare-earth" data-mineral="monazite">
                     <div class="mineral-card">
                         <div class="mineral-image">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Monazite-285219.jpg/400px-Monazite-285219.jpg" alt="Monazite - Rare Earth Phosphate" class="mineral-real-img" loading="lazy">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/8/8e/MonaziteUSGOV.jpg" alt="Monazite rare earth mineral specimen" class="mineral-img" loading="lazy">
                         </div>
                         <div class="mineral-info">
                             <h4>Monazite</h4>
@@ -509,10 +532,10 @@
                 </div>
 
                 <!-- Cassiterite (Tin) -->
-                <div class="gallery-item" data-category="base">
+                <div class="gallery-item" data-category="base" data-mineral="cassiterite">
                     <div class="mineral-card">
                         <div class="mineral-image">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Cassiterite-118810.jpg/400px-Cassiterite-118810.jpg" alt="Cassiterite - Tin Oxide SnO2" class="mineral-real-img" loading="lazy">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Cassiterite_-_Blue_Tier_tinfield%2C_Tasmania%2C_Australia.jpg" alt="Cassiterite tin ore specimen" class="mineral-img" loading="lazy">
                         </div>
                         <div class="mineral-info">
                             <h4>Cassiterite (SnO₂)</h4>
@@ -530,10 +553,10 @@
                 </div>
 
                 <!-- Iron Ore -->
-                <div class="gallery-item" data-category="industrial">
+                <div class="gallery-item" data-category="industrial" data-mineral="iron-ore">
                     <div class="mineral-card">
                         <div class="mineral-image">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/HematiteUSGOV.jpg/400px-HematiteUSGOV.jpg" alt="Hematite - Iron Ore Fe2O3" class="mineral-real-img" loading="lazy">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/4/45/Hematite-1.JPG" alt="Hematite iron ore specimen" class="mineral-img" loading="lazy">
                         </div>
                         <div class="mineral-info">
                             <h4>Iron Ore (Fe)</h4>
@@ -551,10 +574,10 @@
                 </div>
 
                 <!-- Zircon -->
-                <div class="gallery-item" data-category="strategic">
+                <div class="gallery-item" data-category="strategic" data-mineral="zircon">
                     <div class="mineral-card">
                         <div class="mineral-image">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Zircon_crystals.jpg/400px-Zircon_crystals.jpg" alt="Zircon crystals - ZrSiO4" class="mineral-real-img" loading="lazy">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/Zircon-192914.jpg" alt="Zircon mineral specimen" class="mineral-img" loading="lazy">
                         </div>
                         <div class="mineral-info">
                             <h4>Zircon (ZrSiO₄)</h4>
@@ -572,10 +595,10 @@
                 </div>
 
                 <!-- Columbite -->
-                <div class="gallery-item" data-category="strategic">
+                <div class="gallery-item" data-category="strategic" data-mineral="columbite">
                     <div class="mineral-card">
                         <div class="mineral-image">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Columbite-215705.jpg/400px-Columbite-215705.jpg" alt="Columbite - Iron Niobium Oxide" class="mineral-real-img" loading="lazy">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/Columbite-%28Fe%29-182970.jpg" alt="Columbite niobium ore specimen" class="mineral-img" loading="lazy">
                         </div>
                         <div class="mineral-info">
                             <h4>Columbite (FeNb₂O₆)</h4>
@@ -593,10 +616,10 @@
                 </div>
 
                 <!-- Tantalite -->
-                <div class="gallery-item" data-category="strategic">
+                <div class="gallery-item" data-category="strategic" data-mineral="tantalite">
                     <div class="mineral-card">
                         <div class="mineral-image">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Tantalite-%28Mn%29-215706.jpg/400px-Tantalite-%28Mn%29-215706.jpg" alt="Tantalite - Iron Tantalum Oxide" class="mineral-real-img" loading="lazy">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Ferrotantalite_brazil.jpg" alt="Ferrotantalite tantalum ore specimen" class="mineral-img" loading="lazy">
                         </div>
                         <div class="mineral-info">
                             <h4>Tantalite (FeTa₂O₆)</h4>
@@ -614,10 +637,10 @@
                 </div>
 
                 <!-- Lead-Zinc (Galena) -->
-                <div class="gallery-item" data-category="base">
+                <div class="gallery-item" data-category="base" data-mineral="galena">
                     <div class="mineral-card">
                         <div class="mineral-image">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Galena_2_edit.jpg/400px-Galena_2_edit.jpg" alt="Galena - Lead Sulfide PbS" class="mineral-real-img" loading="lazy">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/Galena_Antimony_Zinc.jpg" alt="Galena lead sulfide mineral specimen" class="mineral-img" loading="lazy">
                         </div>
                         <div class="mineral-info">
                             <h4>Galena (PbS)</h4>
@@ -635,10 +658,10 @@
                 </div>
 
                 <!-- Wolframite -->
-                <div class="gallery-item" data-category="strategic">
+                <div class="gallery-item" data-category="strategic" data-mineral="wolframite">
                     <div class="mineral-card">
                         <div class="mineral-image">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Wolframite-215740.jpg/400px-Wolframite-215740.jpg" alt="Wolframite - Tungsten Ore" class="mineral-real-img" loading="lazy">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Wolframite-Scheelite-34736.jpg" alt="Wolframite tungsten ore specimen" class="mineral-img" loading="lazy">
                         </div>
                         <div class="mineral-info">
                             <h4>Wolframite</h4>
@@ -656,10 +679,10 @@
                 </div>
 
                 <!-- Rutile -->
-                <div class="gallery-item" data-category="industrial">
+                <div class="gallery-item" data-category="industrial" data-mineral="rutile">
                     <div class="mineral-card">
                         <div class="mineral-image">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Rutile-rutil.jpg/400px-Rutile-rutil.jpg" alt="Rutile - Titanium Dioxide TiO2" class="mineral-real-img" loading="lazy">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/3/35/Rutile-Pyrophyllite-54588.jpg" alt="Rutile titanium dioxide mineral specimen" class="mineral-img" loading="lazy">
                         </div>
                         <div class="mineral-info">
                             <h4>Rutile (TiO₂)</h4>
@@ -677,10 +700,10 @@
                 </div>
 
                 <!-- Ilmenite -->
-                <div class="gallery-item" data-category="industrial">
+                <div class="gallery-item" data-category="industrial" data-mineral="ilmenite">
                     <div class="mineral-card">
                         <div class="mineral-image">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Ilmenite.jpg/400px-Ilmenite.jpg" alt="Ilmenite - Iron Titanium Oxide FeTiO3" class="mineral-real-img" loading="lazy">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Ferberite-Ilmenite-Quartz-cktsr-22a.jpg" alt="Ilmenite iron titanium oxide specimen" class="mineral-img" loading="lazy">
                         </div>
                         <div class="mineral-info">
                             <h4>Ilmenite (FeTiO₃)</h4>
@@ -698,10 +721,10 @@
                 </div>
 
                 <!-- Barite -->
-                <div class="gallery-item" data-category="industrial">
+                <div class="gallery-item" data-category="industrial" data-mineral="barite">
                     <div class="mineral-card">
                         <div class="mineral-image">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Baryte_20070317_Cardona.jpg/400px-Baryte_20070317_Cardona.jpg" alt="Barite - Barium Sulfate BaSO4" class="mineral-real-img" loading="lazy">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Barite.jpg" alt="Barite barium sulfate mineral specimen" class="mineral-img" loading="lazy">
                         </div>
                         <div class="mineral-info">
                             <h4>Barite (BaSO₄)</h4>
@@ -719,10 +742,10 @@
                 </div>
 
                 <!-- Tourmaline -->
-                <div class="gallery-item" data-category="rare-earth">
+                <div class="gallery-item" data-category="rare-earth" data-mineral="tourmaline">
                     <div class="mineral-card">
                         <div class="mineral-image">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/TourmalineUSGOV.jpg/400px-TourmalineUSGOV.jpg" alt="Tourmaline - Complex Borosilicate" class="mineral-real-img" loading="lazy">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Tourmaline_Mineral_Macro_2.JPG" alt="Tourmaline borosilicate mineral specimen" class="mineral-img" loading="lazy">
                         </div>
                         <div class="mineral-info">
                             <h4>Tourmaline</h4>
@@ -740,10 +763,10 @@
                 </div>
 
                 <!-- Sapphire -->
-                <div class="gallery-item" data-category="rare-earth">
+                <div class="gallery-item" data-category="rare-earth" data-mineral="sapphire">
                     <div class="mineral-card">
                         <div class="mineral-image">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Corundum_gem.jpg/400px-Corundum_gem.jpg" alt="Sapphire - Corundum Al2O3" class="mineral-real-img" loading="lazy">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Sapphire_Gem.jpg" alt="Sapphire corundum gemstone specimen" class="mineral-img" loading="lazy">
                         </div>
                         <div class="mineral-info">
                             <h4>Sapphire</h4>
@@ -762,7 +785,30 @@
             </div>
 
             <div class="gallery-note">
-                <p><i class="fas fa-info-circle"></i> Nigeria is endowed with over 44 different mineral types across its 36 states. This gallery showcases key minerals with exploration and economic significance.</p>
+                <p><i class="fas fa-info-circle"></i> Nigeria hosts over 44 mineral types across 36 states. Prices shown are live spot (gold/silver) or current market reference values. Tap <strong>Enquire to Trade</strong> on any card to open a deal.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mineral Market News Section -->
+    <section id="mineral-news" class="mineral-news section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Stay Informed</span>
+                <h2 class="section-title">Mineral Market News</h2>
+                <div class="title-underline"></div>
+                <p class="section-description">
+                    The latest from global mining and mineral markets — curated from industry sources to keep you ahead of the curve.
+                </p>
+            </div>
+            <div class="news-grid" id="news-grid">
+                <div class="news-loading">
+                    <i class="fas fa-circle-notch fa-spin"></i>
+                    <span>Fetching latest mineral market news…</span>
+                </div>
+            </div>
+            <div class="news-footer">
+                <p><i class="fas fa-rss"></i> News sourced from <strong>Mining.com</strong> — the global mining industry's trusted voice.</p>
             </div>
         </div>
     </section>
@@ -792,8 +838,7 @@
                         <h3>Integrated GIS-Based Resource Modeling</h3>
                         <p>Applied information entropy for system evaluation and resource-environment interaction assessment over multiple years.</p>
                         <div class="project-location">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Nigeria</span>
+                            <i class="fas fa-map-marker-alt"></i> Nigeria
                         </div>
                         <div class="project-tech">
                             <span>ArcGIS</span>
@@ -817,8 +862,7 @@
                         <h3>Time-Series Land Cover Analysis</h3>
                         <p>Comprehensive change detection study using Sentinel and Landsat imagery for environmental baseline assessment.</p>
                         <div class="project-location">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Nigeria</span>
+                            <i class="fas fa-map-marker-alt"></i> Nigeria
                         </div>
                         <div class="project-tech">
                             <span>Google Earth Engine</span>
@@ -842,8 +886,7 @@
                         <h3>Subsurface Structural Mapping</h3>
                         <p>Electrical resistivity and seismic surveys for identifying lithological boundaries and structural controls.</p>
                         <div class="project-location">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Nigeria</span>
+                            <i class="fas fa-map-marker-alt"></i> Nigeria
                         </div>
                         <div class="project-tech">
                             <span>Res2DInv</span>
@@ -867,8 +910,7 @@
                         <h3>Environmental Impact Assessment</h3>
                         <p>Pre-exploration environmental baseline study and impact monitoring for sustainable mining development.</p>
                         <div class="project-location">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Nigeria</span>
+                            <i class="fas fa-map-marker-alt"></i> Nigeria
                         </div>
                         <div class="project-tech">
                             <span>QGIS</span>
@@ -952,6 +994,13 @@
                             </div>
                         </div>
                         <div class="contact-item">
+                            <div class="contact-icon"><i class="fab fa-linkedin-in"></i></div>
+                            <div class="contact-text">
+                                <h4>LinkedIn</h4>
+                                <p><a href="https://www.linkedin.com/in/joshua-egbodofo-a42735135" target="_blank" rel="noopener noreferrer" style="color:inherit;">Joshua Egbodofo</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
                             <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
                             <div class="contact-text">
                                 <h4>Location</h4>
@@ -1013,6 +1062,7 @@
                         <li><a href="#skills">Expertise</a></li>
                         <li><a href="#services">Services</a></li>
                         <li><a href="#gallery">Minerals</a></li>
+                        <li><a href="#trade">Trade</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
