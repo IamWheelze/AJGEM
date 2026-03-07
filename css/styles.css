@@ -2087,11 +2087,11 @@ ul {
     box-shadow: var(--shadow-lg);
 }
 
-.trade-form .form-group {
+.tfield {
     margin-bottom: 18px;
 }
 
-.trade-form label {
+.tfield label {
     display: block;
     font-size: 0.88rem;
     font-weight: 600;
@@ -2099,9 +2099,9 @@ ul {
     margin-bottom: 6px;
 }
 
-.trade-form input,
-.trade-form select,
-.trade-form textarea {
+.tfield input,
+.tfield select,
+.tfield textarea {
     width: 100%;
     padding: 11px 15px;
     border: 1.5px solid var(--gray-300);
@@ -2113,9 +2113,9 @@ ul {
     font-family: inherit;
 }
 
-.trade-form input:focus,
-.trade-form select:focus,
-.trade-form textarea:focus {
+.tfield input:focus,
+.tfield select:focus,
+.tfield textarea:focus {
     outline: none;
     border-color: var(--primary-color);
     box-shadow: 0 0 0 3px rgba(26, 95, 122, 0.12);
@@ -2128,7 +2128,7 @@ ul {
     gap: 16px;
 }
 
-.trade-form textarea {
+.tfield textarea {
     resize: vertical;
 }
 
