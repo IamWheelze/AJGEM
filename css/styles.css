@@ -193,7 +193,11 @@ ul {
 
 .section-description {
     max-width: 600px;
-    margin: 0 auto;
+    margin: 15px auto 0;
+    color: var(--text-secondary);
+}
+
+.section-dark .section-description {
     color: var(--text-muted);
 }
 

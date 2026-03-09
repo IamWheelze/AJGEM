@@ -79,12 +79,11 @@ function initNavigation() {
             const sectionId = section.getAttribute('id');
 
             if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === '#' + sectionId) {
-                        link.classList.add('active');
-                    }
-                });
+                const matchingLink = document.querySelector('.nav-link[href="#' + sectionId + '"]');
+                if (matchingLink) {
+                    navLinks.forEach(link => link.classList.remove('active'));
+                    matchingLink.classList.add('active');
+                }
             }
         });
     });
