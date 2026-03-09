@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Trade Nigerian Minerals - AJGEM. Submit an inquiry to source verified Nigerian minerals for industrial, commercial, or research purposes.">
+    <title>Trade Minerals | AJGEM</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div id="preloader">
+        <div class="loader"><div class="crystal"></div><p>Loading...</p></div>
+    </div>
+
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon"><i class="fas fa-gem"></i></span>
+                <span class="logo-text">AJGEM</span>
+            </a>
+            <div class="nav-toggle" id="nav-toggle"><span></span><span></span><span></span></div>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="assets.html" class="nav-link">Our Operations</a></li>
+                <li><a href="minerals.html" class="nav-link">Minerals</a></li>
+                <li><a href="trade.html" class="nav-link active">Trade</a></li>
+                <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Hero -->
+    <section class="page-hero section-dark">
+        <div class="page-hero-content">
+            <span class="section-subtitle">Sourcing & Procurement</span>
+            <h1>Trade Minerals</h1>
+            <p>Interested in sourcing Nigerian minerals? Submit an inquiry below and we'll get back to you with availability, pricing, and logistics details.</p>
+        </div>
+    </section>
+
+    <!-- Trade Section -->
+    <section class="trade section">
+        <div class="container">
+            <div class="trade-content">
+                <div class="trade-info">
+                    <h3>Available for Trade</h3>
+                    <p>We facilitate the sourcing and export of verified Nigerian minerals for industrial, commercial, and research purposes. All minerals are ethically sourced and come with relevant documentation.</p>
+                    <div class="trade-minerals-list">
+                        <div class="trade-mineral-item"><i class="fas fa-circle-dot"></i><span>Gold (Zamfara, Osun, Kebbi)</span></div>
+                        <div class="trade-mineral-item"><i class="fas fa-circle-dot"></i><span>Cassiterite / Tin (Jos Plateau)</span></div>
+                        <div class="trade-mineral-item"><i class="fas fa-circle-dot"></i><span>Columbite &amp; Tantalite (Coltan)</span></div>
+                        <div class="trade-mineral-item"><i class="fas fa-circle-dot"></i><span>Lithium (Nasarawa, Kwara)</span></div>
+                        <div class="trade-mineral-item"><i class="fas fa-circle-dot"></i><span>Lead, Zinc &amp; Barite (Cross River)</span></div>
+                        <div class="trade-mineral-item"><i class="fas fa-circle-dot"></i><span>Iron Ore (Kogi, Enugu)</span></div>
+                        <div class="trade-mineral-item"><i class="fas fa-circle-dot"></i><span>Gemstones (Tourmaline, Sapphire)</span></div>
+                        <div class="trade-mineral-item"><i class="fas fa-circle-dot"></i><span>Monazite &amp; Zircon (Jos Plateau)</span></div>
+                    </div>
+                    <div class="trade-note">
+                        <i class="fas fa-shield-alt"></i>
+                        <p>All transactions comply with Nigerian Mining Act regulations and international export requirements.</p>
+                    </div>
+                </div>
+                <div class="trade-form-wrapper">
+                    <h3>Submit an Inquiry</h3>
+                    <form id="trade-form" class="trade-form">
+                        <input type="hidden" name="access_key" value="435c3454-fdd1-4590-86d4-40180d5de896">
+                        <input type="hidden" name="subject" value="Mineral Trade Inquiry - AJGEM">
+                        <div class="tfield">
+                            <label for="trade-name">Full Name *</label>
+                            <input type="text" id="trade-name" name="name" placeholder="Your full name" required>
+                        </div>
+                        <div class="tfield">
+                            <label for="trade-email">Email Address *</label>
+                            <input type="email" id="trade-email" name="email" placeholder="your@email.com" required>
+                        </div>
+                        <div class="tfield">
+                            <label for="trade-company">Company / Organisation</label>
+                            <input type="text" id="trade-company" name="company" placeholder="Your company name (optional)">
+                        </div>
+                        <div class="form-row">
+                            <div class="tfield">
+                                <label for="trade-mineral">Mineral of Interest *</label>
+                                <select id="trade-mineral" name="mineral" required>
+                                    <option value="" disabled selected>Select a mineral</option>
+                                    <option value="Gold">Gold</option>
+                                    <option value="Cassiterite / Tin">Cassiterite / Tin</option>
+                                    <option value="Columbite">Columbite</option>
+                                    <option value="Tantalite">Tantalite</option>
+                                    <option value="Lithium">Lithium</option>
+                                    <option value="Lead">Lead</option>
+                                    <option value="Zinc">Zinc</option>
+                                    <option value="Barite">Barite</option>
+                                    <option value="Iron Ore">Iron Ore</option>
+                                    <option value="Monazite">Monazite</option>
+                                    <option value="Zircon">Zircon</option>
+                                    <option value="Gemstones">Gemstones</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            <div class="tfield">
+                                <label for="trade-type">Inquiry Type *</label>
+                                <select id="trade-type" name="inquiry_type" required>
+                                    <option value="" disabled selected>Buy or Sell?</option>
+                                    <option value="Buy">I want to Buy</option>
+                                    <option value="Sell">I want to Sell</option>
+                                    <option value="Both">Buy &amp; Sell</option>
+                                    <option value="Information">Information only</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="tfield">
+                            <label for="trade-quantity">Estimated Quantity / Volume</label>
+                            <input type="text" id="trade-quantity" name="quantity" placeholder="e.g. 5 tonnes, 100 kg, TBD">
+                        </div>
+                        <div class="tfield">
+                            <label for="trade-message">Additional Details *</label>
+                            <textarea id="trade-message" name="message" rows="4" placeholder="Describe your requirements, intended use, timeline, or any other relevant details..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-submit-trade">
+                            <i class="fas fa-paper-plane"></i> Send Inquiry
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="index.html" class="footer-logo"><i class="fas fa-gem"></i><span>AJGEM</span></a>
+                    <p>Applied Geophysics & Mineral Exploration</p>
+                    <p class="footer-tagline">Unlocking Earth's potential through science and technology.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="assets.html">Our Operations</a></li>
+                        <li><a href="minerals.html">Minerals</a></li>
+                        <li><a href="trade.html">Trade</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-services">
+                    <h4>Services</h4>
+                    <ul>
+                        <li>Mineral Exploration</li>
+                        <li>GIS Solutions</li>
+                        <li>Remote Sensing</li>
+                        <li>Environmental Assessment</li>
+                        <li>Mineral Trading</li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>Stay Updated</h4>
+                    <p>Subscribe to receive updates on projects and insights.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email address" required>
+                        <button type="submit"><i class="fas fa-arrow-right"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 AJGEM. All rights reserved.</p>
+                <p>Applied Geophysics &amp; Mineral Exploration</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#" class="back-to-top" id="backToTop"><i class="fas fa-chevron-up"></i></a>
+    <script src="js/main.js"></script>
+</body>
+</html>

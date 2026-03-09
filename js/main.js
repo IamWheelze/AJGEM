@@ -410,7 +410,7 @@ function showNotification(message, type = 'info') {
  * Counter Animation
  */
 function initCounterAnimation() {
-    const counters = document.querySelectorAll('.stat-number');
+    const counters = document.querySelectorAll('.stat-number, .home-stat-number');
 
     const observerOptions = {
         threshold: 0.5
