@@ -80,6 +80,7 @@
 html {
     scroll-behavior: smooth;
     font-size: 16px;
+    overflow-x: hidden; /* Required on Android Chrome to prevent horizontal scroll */
 }
 
 body {
@@ -89,6 +90,7 @@ body {
     color: var(--text-primary);
     background-color: var(--white);
     overflow-x: hidden;
+    max-width: 100%;
 }
 
 /* Selection */
@@ -2012,6 +2014,21 @@ ul {
 
     .newsletter-form button {
         border-radius: var(--radius-md);
+    }
+
+    /* Contain decorative badge within its frame */
+    .experience-badge {
+        right: 0;
+        bottom: 0;
+    }
+
+    .image-frame {
+        overflow: visible; /* badge still visible */
+    }
+
+    /* Prevent any absolutely-positioned elements from causing section-level overflow */
+    .about-image {
+        overflow: hidden;
     }
 }
 
