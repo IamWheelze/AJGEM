@@ -2016,6 +2016,32 @@ ul {
         border-radius: var(--radius-md);
     }
 
+    /* Contact page */
+    .contact-form-container {
+        padding: 30px 24px;
+    }
+
+    .btn-submit {
+        width: 100%;
+        align-self: stretch;
+    }
+
+    /* Investor CTA band */
+    .investor-cta-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .investor-cta-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .investor-cta-buttons .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
     /* Contain decorative badge within its frame */
     .experience-badge {
         right: 0;
@@ -2264,6 +2290,10 @@ ul {
 
     .trade-form-wrapper {
         padding: 25px 18px;
+    }
+
+    .investor-cta-text h2 {
+        font-size: 1.4rem;
     }
 }
 
